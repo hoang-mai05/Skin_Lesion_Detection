@@ -1,7 +1,7 @@
-# Project B Instructions for CS 135 in Spring 2026
+# Multimodal Skin Lesion Classification
 
-Instruction webpage:
-<https://www.cs.tufts.edu/cs/135/2026s/projectB.html>
+## Project Overview
+Develop a machine learning pipeline to classify skin lesions as requiring medical attention (BCC, MEL, SCC, ACK) or harmless (NEV, SEK). The task requires integrating cellphone images with tabular clinical features to execute a binary classification task.
 
 Images can be found at the following Google Drive links:
 
@@ -28,6 +28,9 @@ Data Brief. 2020 Aug 25;32:106221. doi: 10.1016/j.dib.2020.106221
 </p>
 </blockquote>
 
-Note that the data has been lightly altered for the project.
+## Model Progression
 
-We are grateful to these authors for making the dataset available. 
+### Problem 1: Random Forest Pipeline
+1. **Features:** Clinical Feature List + Standard Deviation of Color Channels, Mean Intensity 
+2. **Techniques:** 
+3. **Classifier:** Random Forest + AUROC
