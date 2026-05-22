@@ -45,4 +45,16 @@ $\verb|min_samples_leaf=5|$
 
 $\verb|class_weight='balanced'|$ (to penalize majority class misclassifications)
 
-### Problem 2: 
+### Problem 2: Pretrained CNN & XGBoost Implementation Details
+
+This pipeline transitioned to using deep-learning for feature extraction and an advanced gradient boosting classifier.
+
+**1. Deep Image Feature Extraction:** Instead of relying on manual image metrics, this model leverages a Pretrained Convolutional Neural Network (CNN) to extract high-level visual features from the lesion images. To prevent the dense CNN embeddings from overwhelming the tabular data, **Principal Component Analysis (PCA)** is applied to reduce the dimensionality of the image features.
+
+**2. Imputation:** Missing clinical data is intelligently filled using KNNImputer.
+
+**3. Scaling & Encoding:** Continuous numerical features are normalized using StandardScaler, and categorical features are processed via OneHotEncoder.
+
+**4. Model Training & Optimization:** The concatenated CNN and clinical features are fed into an XGBoost Classifier.
+
+**5. Cross-Validation Logistics:** The model is rigorously evaluated using Stratified Group K-Fold to ensure patient-level isolation across folds while preserving the target class distributions. Model complexity is tuned using GridSearchCV, optimizing specifically for the roc_auc_score.
