@@ -31,6 +31,16 @@ Data Brief. 2020 Aug 25;32:106221. doi: 10.1016/j.dib.2020.106221
 ## Model Progression
 
 ### Problem 1: Random Forest Pipeline
-1. **Features:** Clinical Feature List + Standard Deviation of Color Channels, Mean Intensity 
-2. **Techniques:** 
-3. **Classifier:** Random Forest + AUROC
+1. **Feature Integration:** The pipeline fuses 21 clinical metadata features (one-hot encoded for categorical variables) with manually engineered image features. Custom image metrics include regional image contrast and RGB color channel variations (calculated via standard deviation).
+
+2. **Cross-Validation Strategy:** To ensure robust evaluation and prevent data leakage (since some patients have multiple lesions), the model is validated using a Stratified Group 5-Fold Cross-Validation (StratifiedGroupKFold). Folds are strictly grouped by patient_id while maintaining the minority class ratios.
+
+3. **Hyperparameter Tuning:** The pipeline utilizes GridSearchCV to exhaustively search for the optimal model complexity, targeting the highest AUROC score. The final best-performing model utilizes:
+
+\verb|n_estimators=500| (500 decision trees)
+
+\verb|max_depth=16|
+
+\verb|min_samples_leaf=5|
+
+\verb|class_weight='balanced'| (to penalize majority class misclassifications)
