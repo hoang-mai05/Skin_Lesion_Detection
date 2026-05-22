@@ -37,10 +37,10 @@ Data Brief. 2020 Aug 25;32:106221. doi: 10.1016/j.dib.2020.106221
 
 3. **Hyperparameter Tuning:** The pipeline utilizes GridSearchCV to exhaustively search for the optimal model complexity, targeting the highest AUROC score. The final best-performing model utilizes:
 
-\verb|n_estimators=500| (500 decision trees)
+$\verb|n_estimators=500|$ (500 decision trees)
 
-\verb|max_depth=16|
+$\verb|max_depth=16|$
 
-\verb|min_samples_leaf=5|
+$\verb|min_samples_leaf=5|$
 
-\verb|class_weight='balanced'| (to penalize majority class misclassifications)
+$\verb|class_weight='balanced'|$ (to penalize majority class misclassifications)
