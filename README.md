@@ -44,3 +44,5 @@ $\verb|max_depth=16|$
 $\verb|min_samples_leaf=5|$
 
 $\verb|class_weight='balanced'|$ (to penalize majority class misclassifications)
+
+### Problem 2: 
